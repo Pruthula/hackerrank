@@ -1,4 +1,4 @@
-package com.hackerrank.practice;
+package com.hackerrank.solved;
 
 import java.util.BitSet;
 import java.util.Scanner;
