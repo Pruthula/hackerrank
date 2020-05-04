@@ -40,7 +40,7 @@ public class LeftRotation {
         }
     }
 
-	private static void reverseArray(int arr[], int d) {
+/*	private static void reverseArray(int arr[], int d) {
 		int size = arr.length;
 		
 		int iteration = 1;
@@ -56,5 +56,5 @@ public class LeftRotation {
 		int temp = arr[i];
 		arr[i] = arr[j];
 		arr[j] = temp;
-	}	
+	}*/	
 }

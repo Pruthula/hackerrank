@@ -17,7 +17,7 @@ Given leap and game, complete the function in the editor below so that it return
 
  */
 
-public class OneDArray2 {
+public class LeapGame {
 
 	public static boolean canWin(int leap, int[] game) {
 	    return move(leap, game, 0);
