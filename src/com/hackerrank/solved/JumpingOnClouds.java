@@ -9,11 +9,26 @@ import java.util.Scanner;
 public class JumpingOnClouds {
 	
 	static int jumpingOnClouds(int[] c) {
-		
-
+		return Math.min(countJumps(c.length, c, 1), countJumps(c.length, c, 2));
     }
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static int countJumps(int length, int[] c, int i) {
+		if(i== length-1) {
+			return 1;
+		}
+		
+		if(i == length) {
+			return 1;
+		}
+		
+		if (c[i] == 1) {
+			return Integer.MAX_VALUE;
+		}
+		
+		return 1 + Math.min(countJumps(c.length, c, i+1), countJumps(c.length, c, i+2));
+	}
+
+	private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) throws IOException {
         int n = scanner.nextInt();

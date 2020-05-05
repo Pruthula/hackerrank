@@ -2,9 +2,12 @@ package com.hackerrank.solved;
 
 import java.util.Scanner;
 
-public class Solution {
+/*
+ * https://www.hackerrank.com/challenges/print-the-elements-of-a-linked-list/problem
+ */
+public class SinglyLinkedListSoln {
 
-    static class SinglyLinkedListNode {
+	static class SinglyLinkedListNode {
         public int data;
         public SinglyLinkedListNode next;
 
@@ -36,19 +39,7 @@ public class Solution {
         }
     }
 
-    public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep) {
-        while (node != null) {
-            System.out.print(node.data);
-
-            node = node.next;
-
-            if (node != null) {
-                System.out.print(sep);
-            }
-        }
-    }
-
-    // Complete the reversePrint function below.
+    // Complete the printLinkedList function below.
 
     /*
      * For your reference:
@@ -59,37 +50,44 @@ public class Solution {
      * }
      *
      */
-    static void reversePrint(SinglyLinkedListNode head) {
-        if (head.next == null) {
-            System.out.println(head.data);
-            return;
-        }
-        reversePrint(head.next);
-        System.out.println(head.data);
+    static void printLinkedList(SinglyLinkedListNode head) {
+    	while(head != null) {
+    		System.out.println(head.data);
+    		head = head.next;
+    	}
     }
 
+    static SinglyLinkedListNode insertNodeAtTail(SinglyLinkedListNode head, int data) {
+    	
+    	SinglyLinkedListNode temp = head;
+    	while(temp == null || temp.next != null) {
+    		temp = temp.next;
+    	}
+    	SinglyLinkedListNode node = new SinglyLinkedListNode(data);
+    	temp.next = node;
+    	
+    	return head;
+
+    }
+    
     private static final Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        int tests = scanner.nextInt();
+        SinglyLinkedList llist = new SinglyLinkedList();
+
+        int llistCount = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-        for (int testsItr = 0; testsItr < tests; testsItr++) {
-            SinglyLinkedList llist = new SinglyLinkedList();
-
-            int llistCount = scanner.nextInt();
+        for (int i = 0; i < llistCount; i++) {
+            int llistItem = scanner.nextInt();
             scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
-            for (int i = 0; i < llistCount; i++) {
-                int llistItem = scanner.nextInt();
-                scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
-
-                llist.insertNode(llistItem);
-            }
-
-            reversePrint(llist.head);
+            llist.insertNode(llistItem);
         }
+
+        printLinkedList(llist.head);
 
         scanner.close();
     }
+    
 }
