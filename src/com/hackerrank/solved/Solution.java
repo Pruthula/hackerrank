@@ -1,5 +1,7 @@
 package com.hackerrank.solved;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Solution {
@@ -36,19 +38,19 @@ public class Solution {
         }
     }
 
-    public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep) {
+    public static void printSinglyLinkedList(SinglyLinkedListNode node, String sep, BufferedWriter bufferedWriter) throws IOException {
         while (node != null) {
-            System.out.print(node.data);
+            bufferedWriter.write(String.valueOf(node.data));
 
             node = node.next;
 
             if (node != null) {
-                System.out.print(sep);
+                bufferedWriter.write(sep);
             }
         }
     }
 
-    // Complete the reversePrint function below.
+    // Complete the getNode function below.
 
     /*
      * For your reference:
@@ -59,18 +61,15 @@ public class Solution {
      * }
      *
      */
-    static void reversePrint(SinglyLinkedListNode head) {
-        if (head.next == null) {
-            System.out.println(head.data);
-            return;
-        }
-        reversePrint(head.next);
-        System.out.println(head.data);
+    static int getNode(SinglyLinkedListNode head, int positionFromTail) {
+
+
     }
 
     private static final Scanner scanner = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
+
         int tests = scanner.nextInt();
         scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
 
@@ -87,9 +86,15 @@ public class Solution {
                 llist.insertNode(llistItem);
             }
 
-            reversePrint(llist.head);
+            int position = scanner.nextInt();
+            scanner.skip("(\r\n|[\n\r\u2028\u2029\u0085])?");
+
+            int result = getNode(llist.head, position);
+
+            System.out.println(result);
         }
 
         scanner.close();
     }
 }
+
